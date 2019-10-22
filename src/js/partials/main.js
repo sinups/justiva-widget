@@ -4,11 +4,13 @@ var arContactUs = {
         
         //Function to fix time closed  widget 
             var secunds = true;
+           
             function onClickClose() {  
                 if (secunds === true) {
                     setTimeout(function(){ 
                         widget_toggle();
                         secunds  = false;
+                        console.log('30 secunds',secunds);
                     }, 30000);
                 }
                 
@@ -22,6 +24,7 @@ var arContactUs = {
 
         }
         document.querySelector("#arcontactus-widget .arcontactus-message-button").addEventListener("click", (e) => {
+
             widget_toggle();
             e.preventDefault();
         });
@@ -36,9 +39,11 @@ var arContactUs = {
 
        // close by link btn
         document.querySelector("#arcontactus-widget .close-widget").addEventListener("click", (e) => {
+
             widget_toggle();
             onClickClose();
             e.preventDefault();
+
         });
         // Close by click on document
         var specifiedElement = document.querySelector(".arcontactus-message");
@@ -49,12 +54,18 @@ var arContactUs = {
           }
         });
 
+        
+
+   
+            setTimeout(function(){ 
+                if (!document.querySelector('.messangers-block').classList.contains('show-messageners-block')) {
+                    widget_toggle();
+                    console.log('5 secunds open if not click before');
+                } 
+            }, 5000);
+      
+
         document.querySelector('#arcontactus-widget').classList.add('active');
-
-        setTimeout(function(){ 
-            widget_toggle();
-        }, 5000);
-
         
     }
 };
