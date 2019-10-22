@@ -5,7 +5,7 @@ var arContactUs = {
         function widget_toggle(e) {
             document.querySelector('#arcontactus-widget .messangers-block').classList.toggle('show-messageners-block');
             // document.querySelector('#arcontactus-widget .static').classList.toggle('hide');
-            document.querySelector('#arcontactus-widget .arcontactus-close').classList.toggle('show-messageners-block');
+            // document.querySelector('#arcontactus-widget .arcontactus-close').classList.toggle('show-messageners-block');
             document.querySelector('.widget_container').classList.toggle('show');
 
         }
