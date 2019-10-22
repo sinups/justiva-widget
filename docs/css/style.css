@@ -8,24 +8,11 @@ body {
   opacity: 0;
   -webkit-transition: 0.2s opacity;
   transition: 0.2s opacity; }
-  #arcontactus-widget * {
-    box-sizing: border-box; }
-  #arcontactus-widget.left.arcontactus-message {
-    left: auto;
-    right: 20px; }
-  #arcontactus-widget.left .messangers-block {
-    right: 0;
-    left: auto;
-    -webkit-transform-origin: 90% 105%;
-    transform-origin: 90% 105%; }
-  #arcontactus-widget.left .callback-countdown-block {
-    left: 0;
-    right: auto; }
   #arcontactus-widget.active {
     opacity: 1; }
   #arcontactus-widget.arcontactus-message {
     z-index: 10000;
-    right: 20px;
+    right: 30px;
     bottom: 20px;
     position: fixed !important;
     height: 65px;
@@ -58,34 +45,19 @@ body {
       background-color: #2A65FF;
       border-radius: 50px;
       position: absolute;
-      left: -7px;
-      top: -7px;
       z-index: -1;
       -webkit-transform: scale(0);
       transform: scale(0);
       -webkit-animation: arcontactus-pulse 2s infinite;
       animation: arcontactus-pulse 2s infinite; }
-    #arcontactus-widget .arcontactus-message-button .icons {
-      background-color: #fff;
-      width: 44px;
-      height: 44px;
-      border-radius: 50px;
-      position: absolute;
-      overflow: hidden;
-      -webkit-animation: arcontactus-show-icons 6s infinite;
-      animation: arcontactus-show-icons 6s infinite;
-      top: 50%;
-      left: 50%;
-      margin-top: -22px;
-      margin-left: -22px; }
     #arcontactus-widget .arcontactus-message-button .static {
       position: absolute;
       -webkit-animation: arcontactus-show-stat 6s infinite;
       animation: arcontactus-show-stat 6s infinite;
-      top: 51%;
-      left: 51%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-48%, -50%);
+              transform: translate(-48%, -50%);
       width: 52px;
       height: 52px;
       display: -webkit-box;
@@ -100,9 +72,6 @@ body {
   #arcontactus-widget .pulsation:nth-of-type(2n) {
     -webkit-animation-delay: 5s;
     animation-delay: .5s; }
-  #arcontactus-widget .pulsation.stop {
-    -webkit-animation: none;
-    animation: none; }
   #arcontactus-widget .icons-line {
     top: 10px;
     left: 12px;
@@ -148,25 +117,29 @@ body {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    flex-direction: column;
+            flex-direction: column;
     -webkit-box-align: start;
-    align-items: flex-start;
+            align-items: flex-start;
     padding: 14px 0;
     box-sizing: border-box;
     border-radius: 7px;
-    -webkit-transform-origin: 80% 105%;
-    transform-origin: 80% 105%;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    -webkit-transition: ease-out .12s all;
-    transition: ease-out .12s all;
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: opacity 160ms ease-in-out, -webkit-transform 160ms ease-in-out;
+    transition: opacity 160ms ease-in-out, -webkit-transform 160ms ease-in-out;
+    transition: transform 160ms ease-in-out, opacity 160ms ease-in-out;
+    transition: transform 160ms ease-in-out, opacity 160ms ease-in-out, -webkit-transform 160ms ease-in-out;
     z-index: 10000; }
     #arcontactus-widget .messangers-block:hover .close_widget {
       visibility: visible;
       opacity: 0.5; }
     #arcontactus-widget .messangers-block.show-messageners-block {
-      -webkit-transform: scale(1);
-      transform: scale(1); }
+      pointer-events: all;
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+      opacity: 1; }
   #arcontactus-widget .messanger {
     display: -webkit-box;
     display: flex;
@@ -526,10 +499,8 @@ body {
 #arcontactus-widget .messangers-block {
   padding-top: 50px; }
 
-.widget_container.show:before {
+.widget_container.show_widget:before {
   content: " ";
-  -webkit-filter: blur(250px);
-  filter: blur(250px);
   position: fixed;
   right: -5px;
   bottom: -5px;
@@ -537,7 +508,7 @@ body {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  box-shadow: 0px 0px 5px 344.5px #1a3a8c; }
+  box-shadow: 0px -25px 300px 340px rgba(26, 58, 140, 0.24); }
 
 svg.widget_icon {
   fill: #fff; }
@@ -546,5 +517,67 @@ svg.widget_icon {
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   background: #2A65FF;
   color: #fff; }
+
+.show_widget #arcontactus-widget .arcontactus-message-button .pulsation {
+  -webkit-animation: none;
+  animation: none; }
+
+.messangers-block.show-messageners-block .widget__links a:nth-of-type(1) {
+  -webkit-transition: opacity 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
+  transition: transform 0.35s ease-in-out, opacity 0.35s ease-in-out;
+  transition: transform 0.35s ease-in-out, opacity 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  opacity: 1; }
+
+.messangers-block.show-messageners-block .widget__links a:nth-of-type(2) {
+  -webkit-transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  opacity: 1; }
+
+.messangers-block.show-messageners-block .widget__links a:nth-of-type(3) {
+  -webkit-transition: opacity 0.45s ease-in-out, -webkit-transform 0.45s ease-in-out;
+  transition: opacity 0.45s ease-in-out, -webkit-transform 0.45s ease-in-out;
+  transition: transform 0.45s ease-in-out, opacity 0.45s ease-in-out;
+  transition: transform 0.45s ease-in-out, opacity 0.45s ease-in-out, -webkit-transform 0.45s ease-in-out;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  opacity: 1; }
+
+.messangers-block .widget__links a {
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+  opacity: 0; }
+
+@-webkit-keyframes arcontactus-pulse {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1; }
+  50% {
+    opacity: .5; }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0; } }
+
+@media (max-width: 368px) {
+
+  #arcontactus-widget .messangers-block {
+    width: 295px; }
+
+  #arcontactus-widget.arcontactus-message {
+    right: 10px; }
+
+  .widget__dialog p {
+    margin-right: 0; }
+
+  .widget__breadcrumbs ul li {
+    font-size: 10px; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -11,7 +11,7 @@ var arContactUs = {
                         widget_toggle();
                         secunds =  !secunds;
                         console.log('30 secunds',secunds);
-                    }, 5000);
+                    }, 30000);
                 }
                 return secunds;
             }
@@ -24,15 +24,14 @@ var arContactUs = {
                     fivesec  = false;
                     console.log('5 secunds open if not click before', fivesec);
                 } 
-            }, 3000);
+            }, 5000);
 
         // Create function for change classes
         function widget_toggle(e) {
             document.querySelector('#arcontactus-widget .messangers-block').classList.toggle('show-messageners-block');
             document.querySelector('.widget_container').classList.toggle('show_widget');
 
-            // document.querySelector('#arcontactus-widget .static').classList.toggle('hide');
-            // document.querySelector('#arcontactus-widget .arcontactus-close').classList.toggle('show-messageners-block');`
+           
 
         }
         document.querySelector("#arcontactus-widget .arcontactus-message-button").addEventListener("click", (e) => {
