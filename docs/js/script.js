@@ -11,7 +11,7 @@ var arContactUs = {
                         widget_toggle();
                         secunds  = false;
                         console.log('30 secunds',secunds);
-                    }, 3000);
+                    }, 30000);
                 }
                 
             }
@@ -65,10 +65,6 @@ var arContactUs = {
                     fivesec  = false;
                 } 
             }, 5000);
-        
-
-            
-      
 
         document.querySelector('#arcontactus-widget').classList.add('active');
         
