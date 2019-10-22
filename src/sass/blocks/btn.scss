@@ -717,3 +717,21 @@ svg.widget_icon {
         opacity:0
     }
 }
+
+@media (max-width: 368px) {
+    #arcontactus-widget .messangers-block {
+        width: 295px;
+    }
+
+    #arcontactus-widget.arcontactus-message {
+        right: 10px;
+    }
+
+    .widget__dialog p {
+        margin-right: 0;
+    }
+
+    .widget__breadcrumbs ul li {
+        font-size: 10px;
+    }
+}
