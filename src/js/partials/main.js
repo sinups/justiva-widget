@@ -1,4 +1,19 @@
 "use strict";
+/**
+ * Параметры по умолчанию для нашего приложения
+ * @open Начальное состояние виджета открыт/закрыт.
+ * @openInterval Через сколько должен открываться виджет После загрузки страницы.
+ * @openOnLoadInterval открываем в указанном промежутке.
+ * @userAction Фиксируем 1 Клик который сделал пользователь на виджете.
+ * init() инициализируем функцию при загрузке страницы.
+ */
+window.addEventListener('load', function(){
+    jusWidget.open = false;
+    jusWidget.openInterval = 30000;
+    jusWidget.openOnLoadInterval = 5000;
+    jusWidget.userAction = false;
+    jusWidget.init();
+});
 
 let jusWidget = {
     open: null,
@@ -7,13 +22,16 @@ let jusWidget = {
     openOnLoadInterval: null,
     userAction:null,
     init: function(){
-
+        //Только для тестирования
+        console.log('----- Initial State -----');
         console.log('open:',jusWidget.open);
         console.log('openInterval:',jusWidget.openInterval);
         console.log('openOnLoadInterval:', jusWidget.openOnLoadInterval)
         console.log('userAction:', jusWidget.userAction)
-    
-        // runs every {openInterval} sec and runs on init.
+        console.log('----- Initial State -----');
+        //Только для тестирования
+
+        //открываем в указанном промежутке
         function loopOpen() {
             if (jusWidget.open === false) {
                 changeState ();
@@ -23,6 +41,7 @@ let jusWidget = {
         }
         setInterval(loopOpen, jusWidget.openInterval);
 
+        //Через сколько должен открываться виджет После загрузки страницы.
         setTimeout(function(){ 
             if (jusWidget.open === false && jusWidget.userAction === false) {
                 changeState ();
@@ -30,9 +49,8 @@ let jusWidget = {
             }
         }, jusWidget.openOnLoadInterval);
 
-        // runs every {openInterval} sec and runs on init.
         
-        //Change widget state
+        //Меняем состояние нашего приложения
         function changeState () {
             jusWidget.open = !jusWidget.open;
             console.log('open:',jusWidget.open);
@@ -44,21 +62,20 @@ let jusWidget = {
                 document.querySelector('.widget_container').classList.remove('show_widget');
             }
             clearTimeout(loopOpen);
-            // First tuch widget from user
-            jusWidget.userAction = true;
-            console.log('User tuch widget:', jusWidget.userAction)
 
+            //Фиксируем 1 Клик который сделал пользователь на виджете.
+            jusWidget.userAction = true;
         }
 
-        // Close btn X
+        // закрываем при клике на крестик
         document.querySelector("#arcontactus-widget .close_widget").addEventListener("click", (e) => {
             changeState ();
         });
-        // close by link btn
+        // закрываем при клике на текст 'не сейчас'
         document.querySelector("#arcontactus-widget .close-widget").addEventListener("click", (e) => {
             changeState ();
         });
-        // Click on widget btn
+        // При клике на самом виджет
         document.querySelector("#arcontactus-widget .arcontactus-message-button").addEventListener("click", () => {
             changeState();
         });
@@ -66,10 +83,5 @@ let jusWidget = {
         document.querySelector('#arcontactus-widget').classList.add('active');
     }
 };
-window.addEventListener('load', function(){
-    jusWidget.open = false;
-    jusWidget.openInterval = 30000;
-    jusWidget.openOnLoadInterval = 5000;
-    jusWidget.userAction = false;
-    jusWidget.init();
-});
+
+
