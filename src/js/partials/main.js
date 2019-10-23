@@ -9,7 +9,7 @@
  */
 window.addEventListener('load', function(){
     jusWidget.open = false;
-    jusWidget.openInterval = 30000;
+    jusWidget.openInterval = 40000;
     jusWidget.openOnLoadInterval = 5000;
     jusWidget.userAction = false;
     jusWidget.init();
@@ -35,7 +35,7 @@ let jusWidget = {
         function loopOpen() {
             if (jusWidget.open === false) {
                 changeState ();
-                console.log('evry 40sec')
+                console.log('every 40sec')
             }
             
         }
