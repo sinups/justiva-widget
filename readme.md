@@ -3,7 +3,7 @@
 
 :boy:   Автор : [ A K ](https://www.instagram.com/webtheory/ "Instagram page")
 
-:[DEMO => ](https://sinups.github.io/justiva-widget/ "Demo page") 
+[:link: DEMO](https://sinups.github.io/justiva-widget/ "Demo page") 
 
 ## Стартовый репозиторий .
 Установка: `npm i`.
