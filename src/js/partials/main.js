@@ -1,75 +1,75 @@
 "use strict";
-var arContactUs = {
+
+let jusWidget = {
+    open: null,
+    countdown: null,
+    openInterval: null,
+    openOnLoadInterval: null,
+    userAction:null,
     init: function(){
-        
-        //Function to fix time closed  widget 
-            var secunds = true;
-           
-            function onClickClose() {  
-                if (secunds === true) {
-                    setTimeout(function(){ 
-                        widget_toggle();
-                        secunds =  !secunds;
-                        console.log('30 secunds',secunds);
-                    }, 30000);
-                }
-                return secunds;
+
+        console.log('open:',jusWidget.open);
+        console.log('openInterval:',jusWidget.openInterval);
+        console.log('openOnLoadInterval:', jusWidget.openOnLoadInterval)
+        console.log('userAction:', jusWidget.userAction)
+    
+        // runs every {openInterval} sec and runs on init.
+        function loopOpen() {
+            if (jusWidget.open === false) {
+                changeState ();
+                console.log('evry 40sec')
             }
+            
+        }
+        setInterval(loopOpen, jusWidget.openInterval);
 
-            var fivesec = true;
-            setTimeout(function(){ 
-                if (fivesec === true && !document.querySelector('.messangers-block').classList.contains('show-messageners-block')) {
-                    widget_toggle();
-                    
-                    fivesec  = false;
-                    console.log('5 secunds open if not click before', fivesec);
-                } 
-            }, 5000);
+        setTimeout(function(){ 
+            if (jusWidget.open === false && jusWidget.userAction === false) {
+                changeState ();
+                console.log('5 sec')
+            }
+        }, jusWidget.openOnLoadInterval);
 
-        // Create function for change classes
-        function widget_toggle(e) {
-            document.querySelector('#arcontactus-widget .messangers-block').classList.toggle('show-messageners-block');
-            document.querySelector('.widget_container').classList.toggle('show_widget');
-
-           
+        // runs every {openInterval} sec and runs on init.
+        
+        //Change widget state
+        function changeState () {
+            jusWidget.open = !jusWidget.open;
+            console.log('open:',jusWidget.open);
+            if (jusWidget.open === true) {
+                document.querySelector('#arcontactus-widget .messangers-block').classList.add('show-messageners-block');
+                document.querySelector('.widget_container').classList.add('show_widget');
+            } else {
+                document.querySelector('#arcontactus-widget .messangers-block').classList.remove('show-messageners-block');
+                document.querySelector('.widget_container').classList.remove('show_widget');
+            }
+            clearTimeout(loopOpen);
+            // First tuch widget from user
+            jusWidget.userAction = true;
+            console.log('User tuch widget:', jusWidget.userAction)
 
         }
-        document.querySelector("#arcontactus-widget .arcontactus-message-button").addEventListener("click", (e) => {
-            widget_toggle();
-            e.preventDefault();
-        });
 
         // Close btn X
         document.querySelector("#arcontactus-widget .close_widget").addEventListener("click", (e) => {
-            widget_toggle();
-            onClickClose();
-            e.preventDefault();
-            
+            changeState ();
         });
-
-       // close by link btn
+        // close by link btn
         document.querySelector("#arcontactus-widget .close-widget").addEventListener("click", (e) => {
-
-            widget_toggle();
-            onClickClose();
-            e.preventDefault();
-
+            changeState ();
         });
-        // Close by click on document
-        // var specifiedElement = document.querySelector(".arcontactus-message");
-        // document.addEventListener('click', function(event) {
-        //   var isClickInside = specifiedElement.contains(event.target);
-        //   if (!isClickInside) {
-        //     widget_toggle();
-        //   }
-        // });
+        // Click on widget btn
+        document.querySelector("#arcontactus-widget .arcontactus-message-button").addEventListener("click", () => {
+            changeState();
+        });
 
-
-           
         document.querySelector('#arcontactus-widget').classList.add('active');
-        
     }
 };
 window.addEventListener('load', function(){
-    arContactUs.init();
+    jusWidget.open = false;
+    jusWidget.openInterval = 30000;
+    jusWidget.openOnLoadInterval = 5000;
+    jusWidget.userAction = false;
+    jusWidget.init();
 });
