@@ -40,8 +40,8 @@ body {
       line-height: 11px;
       margin: 0; }
     #arcontactus-widget .arcontactus-message-button .pulsation {
-      width: 84px;
-      height: 84px;
+      width: 105px;
+      height: 105px;
       background-color: #2A65FF;
       border-radius: 50px;
       position: absolute;
@@ -523,15 +523,6 @@ svg.widget_icon {
   animation: none; }
 
 .messangers-block.show-messageners-block .widget__links a:nth-of-type(1) {
-  -webkit-transition: opacity 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
-  transition: opacity 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
-  transition: transform 0.35s ease-in-out, opacity 0.35s ease-in-out;
-  transition: transform 0.35s ease-in-out, opacity 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
-  -webkit-transform: translateY(0px);
-          transform: translateY(0px);
-  opacity: 1; }
-
-.messangers-block.show-messageners-block .widget__links a:nth-of-type(2) {
   -webkit-transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
   transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
   transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
@@ -540,11 +531,20 @@ svg.widget_icon {
           transform: translateY(0px);
   opacity: 1; }
 
-.messangers-block.show-messageners-block .widget__links a:nth-of-type(3) {
+.messangers-block.show-messageners-block .widget__links a:nth-of-type(2) {
   -webkit-transition: opacity 0.45s ease-in-out, -webkit-transform 0.45s ease-in-out;
   transition: opacity 0.45s ease-in-out, -webkit-transform 0.45s ease-in-out;
   transition: transform 0.45s ease-in-out, opacity 0.45s ease-in-out;
   transition: transform 0.45s ease-in-out, opacity 0.45s ease-in-out, -webkit-transform 0.45s ease-in-out;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  opacity: 1; }
+
+.messangers-block.show-messageners-block .widget__links a:nth-of-type(3) {
+  -webkit-transition: opacity 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
   opacity: 1; }

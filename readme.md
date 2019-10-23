@@ -1,9 +1,8 @@
-![version](https://img.shields.io/badge/version-1.0-red.svg?style=flat-square "Version Frontend-kit")
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/sinups/)
 
 :boy:   Автор : [ A K ](https://www.instagram.com/webtheory/ "Instagram page")
 
-[:link: DEMO](https://sinups.github.io/justiva-widget/ "Demo page") 
+:link: [DEMO](https://sinups.github.io/justiva-widget/ "Demo page") 
 
 ## Стартовый репозиторий .
 Установка: `npm i`.
@@ -29,29 +28,3 @@
 `<svg  width="28"  height="28"  class="custom_class"><use  xlink:href="#image_name"></use></svg>`
 
 
-## Bывод png sprite
-
-Предоставленные миксины предназначены для использования с переменными
-
-`
-.icon-imagename {
-  @include sprite($image_name);
-}`
-
-Пример использования в HTML:
-
-`display: block` sprite:
-
-`<div class="icon-imagename"></div>`
-
-Изменитe `display` ( `display: inline-block;`), мы предлагаем использовать общий css класс:
-
-CSS
-
-`.icon {
-  display: inline-block;
-}`
-
-HTML
-
-`<i class="icon icon-home"></i>`
