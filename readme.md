@@ -2,7 +2,8 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/sinups/)
 
 :boy:   Автор : [ A K ](https://www.instagram.com/webtheory/ "Instagram page")
- [DEMO => ] (https://sinups.github.io/justiva-widget/)
+
+:[DEMO => ](https://sinups.github.io/justiva-widget/ "Demo page") 
 
 ## Стартовый репозиторий .
 Установка: `npm i`.
