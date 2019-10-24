@@ -64,6 +64,11 @@ document.querySelector("#arcontactus-widget .close_widget").addEventListener("mo
     sendGoal('ya_widgetCloseOver', 'widgetCloseOver')
 });
 
+//Яндекс.Метрикa: Навели на “Закрыть виджет”
+document.querySelector("#arcontactus-widget .close-widget").addEventListener("mouseover", () => {
+    sendGoal('ya_notnowOver', 'notnowOver')
+});
+
 //Яндекс.Метрикa: Навели в виджете на текст юриста
 document.querySelector(".widget__dialog p").addEventListener("mouseover", () => {
     sendGoal('ya_textOver', 'textOver')

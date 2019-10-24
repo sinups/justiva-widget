@@ -635,7 +635,7 @@ $theme: #2A65FF;
     }
 }
 
-.widget_container.show_widget:before {
+.widget_container:before {
     content: " ";
     position: fixed;
     right: -5px;
@@ -644,7 +644,14 @@ $theme: #2A65FF;
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    box-shadow: 0px -25px 300px 340px rgba(26, 58, 140, 0.24)
+    box-shadow: 0px -25px 0px 0px rgba(26, 58, 140, 0.24);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.widget_container.show_widget:before {
+
+    box-shadow: 0px -25px 300px 340px rgba(26, 58, 140, 0.24);
+
 }
 
 svg.widget_icon {
