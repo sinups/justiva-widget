@@ -1,4 +1,4 @@
-"use strict";
+
 /**
  * Параметры по умолчанию для нашего приложения
  * @open Начальное состояние виджета открыт/закрыт.
@@ -70,10 +70,14 @@ let jusWidget = {
         // закрываем при клике на крестик
         document.querySelector("#arcontactus-widget .close_widget").addEventListener("click", (e) => {
             changeState ();
+            //Яндекс.Метрикa: Нажали на “Закрыть виджет”
+            sendGoal('ya_widgetClosePress', 'widgetClosePress')
         });
         // закрываем при клике на текст 'не сейчас'
         document.querySelector("#arcontactus-widget .close-widget").addEventListener("click", (e) => {
             changeState ();
+            //Яндекс.Метрикa:Нажали в виджете на “Не сейчас”
+            sendGoal('ya_notnowPress', 'notnowPress')
         });
         // При клике на самом виджет
         document.querySelector("#arcontactus-widget .arcontactus-message-button").addEventListener("click", () => {
@@ -83,5 +87,3 @@ let jusWidget = {
         document.querySelector('#arcontactus-widget').classList.add('active');
     }
 };
-
-
