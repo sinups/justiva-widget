@@ -10,7 +10,7 @@
 window.addEventListener('load', function(){
     jusWidget.open = false;
     jusWidget.openInterval = 40000;
-    jusWidget.openOnLoadInterval = 5000;
+    jusWidget.openOnLoadInterval = 15000;
     jusWidget.userAction = false;
     jusWidget.init();
 });
@@ -45,7 +45,7 @@ let jusWidget = {
         setTimeout(function(){ 
             if (jusWidget.open === false && jusWidget.userAction === false) {
                 changeState ();
-                console.log('5 sec')
+                console.log('15 sec')
             }
         }, jusWidget.openOnLoadInterval);
 
@@ -78,12 +78,23 @@ let jusWidget = {
             changeState ();
             //Яндекс.Метрикa:Нажали в виджете на “Не сейчас”
             sendGoal('ya_notnowPress', 'notnowPress')
+
+            e.preventDefault();
         });
         // При клике на самом виджет
         document.querySelector("#arcontactus-widget .arcontactus-message-button").addEventListener("click", () => {
             changeState();
+            //Яндекс.Метрикa:Нажали в виджете на “открыть чат"
+            sendGoal('ya_openPress', 'openPress')
+
+            //Яндекс.Метрикa:Нажали в виджете на “закрыть чат”
+            if (jusWidget.open === false) {
+                sendGoal('ya_closePress', 'closePress')
+            }
+            
         });
 
         document.querySelector('#arcontactus-widget').classList.add('active');
     }
 };
+
