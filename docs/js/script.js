@@ -34,9 +34,9 @@ document.querySelector("#arcontactus-widget .close-widget").addEventListener("cl
     sendGoal('ya_notnowPress', 'notnowPress')
 });
 
-//Яндекс.Метрикa: Нажали в виджете на “Не сейчас”
+//Яндекс.Метрикa: Нажали в виджете на текст юриста
 document.querySelector(".widget__dialog p").addEventListener("click", () => {
-    sendGoal('ya_textPress', ' textPress')
+    sendGoal('ya_textPress', 'textPress')
 });
 
 //Яндекс.Метрикa: Нажали в виджете на “Нужна помощь юриста”
@@ -125,23 +125,23 @@ let jusWidget = {
         console.log('openOnLoadInterval:', jusWidget.openOnLoadInterval)
         console.log('userAction:', jusWidget.userAction)
         console.log('----- Initial State -----');
+        console.log('init time:',new Date().getSeconds())
         //Только для тестирования
 
         //открываем в указанном промежутке
         function loopOpen() {
             if (jusWidget.open === false) {
                 changeState ();
-                console.log('every 40sec')
+                console.log('every 40sec',new Date().getSeconds())
             }
-            
         }
-        setInterval(loopOpen, jusWidget.openInterval);
+        var settIntervel = setInterval(loopOpen, jusWidget.openInterval);
 
         //Через сколько должен открываться виджет После загрузки страницы.
         setTimeout(function(){ 
             if (jusWidget.open === false && jusWidget.userAction === false) {
                 changeState ();
-                console.log('15 sec')
+                console.log('15 sec',new Date().getSeconds())
             }
         }, jusWidget.openOnLoadInterval);
 
@@ -149,16 +149,17 @@ let jusWidget = {
         //Меняем состояние нашего приложения
         function changeState () {
             jusWidget.open = !jusWidget.open;
-            console.log('open:',jusWidget.open);
+            console.log('open and chenge state:',jusWidget.open + ' time:',new Date().getSeconds());
             if (jusWidget.open === true) {
                 document.querySelector('#arcontactus-widget .messangers-block').classList.add('show-messageners-block');
                 document.querySelector('.widget_container').classList.add('show_widget');
             } else {
                 document.querySelector('#arcontactus-widget .messangers-block').classList.remove('show-messageners-block');
                 document.querySelector('.widget_container').classList.remove('show_widget');
+                
             }
-            clearTimeout(loopOpen);
-
+            clearTimeout(settIntervel);
+            settIntervel = setInterval(loopOpen, jusWidget.openInterval);
             //Фиксируем 1 Клик который сделал пользователь на виджете.
             jusWidget.userAction = true;
         }

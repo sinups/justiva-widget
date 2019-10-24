@@ -34,9 +34,9 @@ document.querySelector("#arcontactus-widget .close-widget").addEventListener("cl
     sendGoal('ya_notnowPress', 'notnowPress')
 });
 
-//Яндекс.Метрикa: Нажали в виджете на “Не сейчас”
+//Яндекс.Метрикa: Нажали в виджете на текст юриста
 document.querySelector(".widget__dialog p").addEventListener("click", () => {
-    sendGoal('ya_textPress', ' textPress')
+    sendGoal('ya_textPress', 'textPress')
 });
 
 //Яндекс.Метрикa: Нажали в виджете на “Нужна помощь юриста”
