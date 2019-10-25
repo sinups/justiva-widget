@@ -1,20 +1,4 @@
 
-/**
- * Параметры по умолчанию для нашего приложения
- * @open Начальное состояние виджета открыт/закрыт.
- * @openInterval Через сколько должен открываться виджет После загрузки страницы.
- * @openOnLoadInterval открываем в указанном промежутке.
- * @userAction Фиксируем 1 Клик который сделал пользователь на виджете.
- * init() инициализируем функцию при загрузке страницы.
- */
-window.addEventListener('load', function(){
-    jusWidget.open = false;
-    jusWidget.openInterval = 40000;
-    jusWidget.openOnLoadInterval = 15000;
-    jusWidget.userAction = false;
-    jusWidget.init();
-});
-
 let jusWidget = {
     open: null,
     countdown: null,
@@ -96,6 +80,46 @@ let jusWidget = {
         });
 
         document.querySelector('#arcontactus-widget').classList.add('active');
-    }
+    },
+    injectScripts: function() {
+        // Get HTML head element 
+        var head = document.querySelector('head');  
+        // Create new link Element 
+        var link = document.createElement('link'); 
+        // set the attributes for link element  
+        link.rel = 'stylesheet';  
+        link.type = 'text/css'; 
+        link.href = '/css/style.css';  
+        // Append link element to HTML head 
+        head.appendChild(link);  
+
+          
+        let html = `@@include('../../templates/btn.html')`;
+        let widgetContainer = document.createElement('div');
+        widgetContainer.classList.add('widget_container');
+        widgetContainer.innerHTML = html;
+
+        document.querySelector('body').appendChild(widgetContainer);
+  },
+
 };
 
+
+
+/**
+ * Параметры по умолчанию для нашего приложения
+ * @open Начальное состояние виджета открыт/закрыт.
+ * @openInterval Через сколько должен открываться виджет После загрузки страницы.
+ * @openOnLoadInterval открываем в указанном промежутке.
+ * @userAction Фиксируем 1 Клик который сделал пользователь на виджете.
+ * init() инициализируем функцию при загрузке страницы.
+ */
+jusWidget.injectScripts();
+window.addEventListener('load', function(){
+    jusWidget.open = false;
+    jusWidget.openInterval = 40000;
+    jusWidget.openOnLoadInterval = 15000;
+    jusWidget.userAction = false;
+    
+    jusWidget.init();
+});
