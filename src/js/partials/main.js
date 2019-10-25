@@ -1,3 +1,20 @@
+/**
+ * Параметры по умолчанию для нашего приложения
+ * @open Начальное состояние виджета открыт/закрыт.
+ * @openInterval Через сколько должен открываться виджет После загрузки страницы.
+ * @openOnLoadInterval открываем в указанном промежутке.
+ * @userAction Фиксируем 1 Клик который сделал пользователь на виджете.
+ * init() инициализируем функцию при загрузке страницы.
+ */
+
+window.addEventListener('load', function(){
+    jusWidget.open = false;
+    jusWidget.openInterval = 40000;
+    jusWidget.openOnLoadInterval = 15000;
+    jusWidget.userAction = false;
+    jusWidget.init();
+    document.querySelector('#arcontactus-widget').classList.add('active');
+});
 
 let jusWidget = {
     open: null,
@@ -7,20 +24,20 @@ let jusWidget = {
     userAction:null,
     init: function(){
         //Только для тестирования
-        console.log('----- Initial State -----');
-        console.log('open:',jusWidget.open);
-        console.log('openInterval:',jusWidget.openInterval);
-        console.log('openOnLoadInterval:', jusWidget.openOnLoadInterval)
-        console.log('userAction:', jusWidget.userAction)
-        console.log('----- Initial State -----');
-        console.log('init time:',new Date().getSeconds())
+        // console.log('----- Initial State -----');
+        // console.log('open:',jusWidget.open);
+        // console.log('openInterval:',jusWidget.openInterval);
+        // console.log('openOnLoadInterval:', jusWidget.openOnLoadInterval)
+        // console.log('userAction:', jusWidget.userAction)
+        // console.log('----- Initial State -----');
+        // console.log('init time:',new Date().getSeconds())
         //Только для тестирования
 
         //открываем в указанном промежутке
         function loopOpen() {
             if (jusWidget.open === false) {
                 changeState ();
-                console.log('every 40sec',new Date().getSeconds())
+                // console.log('every 40sec',new Date().getSeconds())
             }
         }
         var settIntervel = setInterval(loopOpen, jusWidget.openInterval);
@@ -29,7 +46,7 @@ let jusWidget = {
         setTimeout(function(){ 
             if (jusWidget.open === false && jusWidget.userAction === false) {
                 changeState ();
-                console.log('15 sec',new Date().getSeconds())
+                // console.log('15 sec',new Date().getSeconds())
             }
         }, jusWidget.openOnLoadInterval);
 
@@ -37,7 +54,7 @@ let jusWidget = {
         //Меняем состояние нашего приложения
         function changeState () {
             jusWidget.open = !jusWidget.open;
-            console.log('open and chenge state:',jusWidget.open + ' time:',new Date().getSeconds());
+            // console.log('open and chenge state:',jusWidget.open + ' time:',new Date().getSeconds());
             if (jusWidget.open === true) {
                 document.querySelector('#arcontactus-widget .messangers-block').classList.add('show-messageners-block');
                 document.querySelector('.widget_container').classList.add('show_widget');
@@ -79,7 +96,7 @@ let jusWidget = {
             
         });
 
-        document.querySelector('#arcontactus-widget').classList.add('active');
+       
     },
     injectScripts: function() {
         // Get HTML head element 
@@ -100,26 +117,10 @@ let jusWidget = {
         widgetContainer.innerHTML = html;
 
         document.querySelector('body').appendChild(widgetContainer);
-  },
+    },
 
 };
-
-
-
-/**
- * Параметры по умолчанию для нашего приложения
- * @open Начальное состояние виджета открыт/закрыт.
- * @openInterval Через сколько должен открываться виджет После загрузки страницы.
- * @openOnLoadInterval открываем в указанном промежутке.
- * @userAction Фиксируем 1 Клик который сделал пользователь на виджете.
- * init() инициализируем функцию при загрузке страницы.
- */
 jusWidget.injectScripts();
-window.addEventListener('load', function(){
-    jusWidget.open = false;
-    jusWidget.openInterval = 40000;
-    jusWidget.openOnLoadInterval = 15000;
-    jusWidget.userAction = false;
-    
-    jusWidget.init();
-});
+
+
+
