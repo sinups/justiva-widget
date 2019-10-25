@@ -106,7 +106,7 @@ let jusWidget = {
         // set the attributes for link element  
         link.rel = 'stylesheet';  
         link.type = 'text/css'; 
-        link.href = '/css/style.css';  
+        link.href = 'https://wdgt.justiva.ru/css/style.css';  
         // Append link element to HTML head 
         head.appendChild(link);  
 

@@ -136,7 +136,7 @@ body {
       pointer-events: all;
       -webkit-transform: translateY(0px);
               transform: translateY(0px);
-      opacity: 1; }
+      opacity: 1 !important; }
   #arcontactus-widget .messanger {
     display: -webkit-box;
     display: flex;

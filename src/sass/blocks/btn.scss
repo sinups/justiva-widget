@@ -183,7 +183,7 @@ $theme: #2A65FF;
         &.show-messageners-block {
             pointer-events: all;
             transform: translateY(0px);
-            opacity: 1;
+            opacity: 1 !important;
         }
     }
 
